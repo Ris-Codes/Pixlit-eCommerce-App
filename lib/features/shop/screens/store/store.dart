@@ -1,33 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:pixlit_store/common/widgets/appbar/appbar.dart';
-import 'package:pixlit_store/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:pixlit_store/common/widgets/appbar/tabBar.dart';
 import 'package:pixlit_store/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:pixlit_store/common/widgets/layouts/grid_layout.dart';
 import 'package:pixlit_store/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:pixlit_store/common/widgets/texts/section_heading.dart';
-import 'package:pixlit_store/common/widgets/texts/t_brand_title_text_with_verified_icon.dart';
+import 'package:pixlit_store/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:pixlit_store/ultils/constants/colors.dart';
-import 'package:pixlit_store/ultils/constants/enums.dart';
 import 'package:pixlit_store/ultils/constants/image_strings.dart';
 import 'package:pixlit_store/ultils/constants/sizes.dart';
 import 'package:pixlit_store/ultils/helpers/helper_functions.dart';
 
-import '../../../../common/widgets/images/t_circular_image.dart';
+import '../../../../common/widgets/brands/brand_card.dart';
+import '../../../../common/widgets/brands/brand_showcase.dart';
 
 class StoreScreen extends StatelessWidget {
   const StoreScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: TAppBar(
-        title: Text(
-          'Store',
-          style: Theme.of(context).textTheme.headlineMedium,
+    return DefaultTabController(
+      length: 5,
+      child: Scaffold(
+        appBar: TAppBar(
+          title: Text(
+            'Store',
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
+          actions: [TCartCounterIcon(onPressed: () {})],
         ),
-        actions: [TCartCounterIcon(onPressed: () {})],
-      ),
-      body: NestedScrollView(
+        body: NestedScrollView(
           headerSliverBuilder: (_, innerBoxIsScrolled) {
             return [
               SliverAppBar(
@@ -60,65 +62,41 @@ class StoreScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: TSizes.spaceBtwItems / 1.5),
 
+                      /// --Brand Grid
                       TGridLayout(
                           itemCount: 4,
                           mainAxisExtend: 80,
                           itemBuilder: (_, index) {
-                            return GestureDetector(
-                              onTap: () {},
-                              child: TRoundedContainer(
-                                padding: const EdgeInsets.all(TSizes.sm),
-                                showBorder: true,
-                                backgroundColor: Colors.transparent,
-                                child: Row(
-                                  children: [
-                                    /// --Icon
-                                    Flexible(
-                                      child: TCircularImage(
-                                        isNetworkImage: false,
-                                        image: TImages.clothIcon,
-                                        backgroundColor: Colors.transparent,
-                                        overlayColor:
-                                            THelperFunctions.isDarkMode(context)
-                                                ? TColors.white
-                                                : TColors.black,
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                        width: TSizes.spaceBtwItems / 2),
-
-                                    /// --Text Content
-                                    Expanded(
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          const TBrandTitleWithVerifiedIcon(
-                                              title: 'Nike',
-                                              brandTextSize: TextSizes.large),
-                                          Text(
-                                            '256 Products',
-                                            overflow: TextOverflow.ellipsis,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .labelMedium,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            );
+                            return const TBrandCard(showBorder: false);
                           })
                     ],
                   ),
                 ),
+
+                /// --Tabs
+                bottom: const TTabBar(
+                  tabs: [
+                    Tab(child: Text('Sports')),
+                    Tab(child: Text('Furniture')),
+                    Tab(child: Text('Electronics')),
+                    Tab(child: Text('Clothes')),
+                    Tab(child: Text('Cosmetics')),
+                  ],
+                ),
               ),
             ];
           },
-          body: Container()),
+          body: const TabBarView(
+            children: [
+              TCatogeryTab(),
+              TCatogeryTab(),
+              TCatogeryTab(),
+              TCatogeryTab(),
+              TCatogeryTab(),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

@@ -4,7 +4,7 @@ class TAppBarTheme {
   TAppBarTheme._();
   
   /// -- Light Theme
-  static final lightAppBarTheme = AppBarTheme(
+  static const lightAppBarTheme = AppBarTheme(
       elevation: 0,
       centerTitle: false,
       scrolledUnderElevation: 0,
@@ -16,7 +16,7 @@ class TAppBarTheme {
   );
 
   /// -- Dark Theme
-  static final darkAppBarTheme = AppBarTheme(
+  static const darkAppBarTheme = AppBarTheme(
       elevation: 0,
       centerTitle: false,
       scrolledUnderElevation: 0,
