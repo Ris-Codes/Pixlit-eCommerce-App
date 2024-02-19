@@ -7,12 +7,10 @@ import 'package:pixlit_store/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:pixlit_store/common/widgets/texts/section_heading.dart';
 import 'package:pixlit_store/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:pixlit_store/ultils/constants/colors.dart';
-import 'package:pixlit_store/ultils/constants/image_strings.dart';
 import 'package:pixlit_store/ultils/constants/sizes.dart';
 import 'package:pixlit_store/ultils/helpers/helper_functions.dart';
 
 import '../../../../common/widgets/brands/brand_card.dart';
-import '../../../../common/widgets/brands/brand_showcase.dart';
 
 class StoreScreen extends StatelessWidget {
   const StoreScreen({super.key});
