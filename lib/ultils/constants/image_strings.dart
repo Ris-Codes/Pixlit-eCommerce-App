@@ -207,4 +207,7 @@ class TImages {
       "assets/images/products/slipper-product-3.png";
   static const String productImage77 =
       "assets/images/products/slipper-product.png";
+
+  //Profile
+  static const String user = "assets/images/user/user.png";
 }
