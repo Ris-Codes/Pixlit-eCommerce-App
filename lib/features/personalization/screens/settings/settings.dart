@@ -5,6 +5,7 @@ import 'package:pixlit_store/common/widgets/appbar/appbar.dart';
 import 'package:pixlit_store/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:pixlit_store/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:pixlit_store/common/widgets/texts/section_heading.dart';
+import 'package:pixlit_store/features/personalization/screens/address/address.dart';
 import 'package:pixlit_store/features/personalization/screens/profile/profile.dart';
 import 'package:pixlit_store/ultils/constants/colors.dart';
 import 'package:pixlit_store/ultils/constants/sizes.dart';
@@ -33,7 +34,8 @@ class SettingsScreen extends StatelessWidget {
                               .apply(color: TColors.white))),
 
                   /// User Profile Card
-                  TUserProfileTile(onPressed: () => Get.to(() => const ProfileScreen())),
+                  TUserProfileTile(
+                      onPressed: () => Get.to(() => const ProfileScreen())),
                   const SizedBox(height: TSizes.spaceBtwSections),
                 ],
               ),
@@ -49,10 +51,12 @@ class SettingsScreen extends StatelessWidget {
                       title: 'Account Settings', showActionButton: false),
                   const SizedBox(height: TSizes.spaceBtwItems),
 
-                  const TSettingsMenuTile(
-                      icon: Iconsax.safe_home,
-                      title: 'My Addresses',
-                      subTitle: 'Set shopping delivery address'),
+                  TSettingsMenuTile(
+                    icon: Iconsax.safe_home,
+                    title: 'My Addresses',
+                    subTitle: 'Set shopping delivery address',
+                    onTap: () => Get.to(() => const UserAddressScreen()),
+                  ),
                   const TSettingsMenuTile(
                       icon: Iconsax.shopping_cart,
                       title: 'My Cart',
@@ -107,8 +111,8 @@ class SettingsScreen extends StatelessWidget {
                   const SizedBox(height: TSizes.spaceBtwSections),
                   SizedBox(
                     width: double.infinity,
-                    child:
-                        OutlinedButton(onPressed: () {}, child: const Text('Logout')),
+                    child: OutlinedButton(
+                        onPressed: () {}, child: const Text('Logout')),
                   ),
                   const SizedBox(height: TSizes.spaceBtwSections * 2.5),
                 ],
