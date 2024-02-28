@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:pixlit_store/features/shop/screens/cart/cart.dart';
 import 'package:pixlit_store/ultils/constants/colors.dart';
 
 class TCartCounterIcon extends StatelessWidget {
   const TCartCounterIcon({
-    super.key, this.iconColor, required this.onPressed,
+    super.key, this.iconColor
   });
 
   final Color? iconColor;
-  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         IconButton(
-            onPressed: onPressed,
+            onPressed: () => Get.to(() => const CartScreen()),
             icon:  Icon(Iconsax.shopping_bag, color: iconColor)),
         Positioned(
           right: 0,
