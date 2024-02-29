@@ -7,6 +7,7 @@ import 'package:pixlit_store/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:pixlit_store/common/widgets/texts/section_heading.dart';
 import 'package:pixlit_store/features/personalization/screens/address/address.dart';
 import 'package:pixlit_store/features/personalization/screens/profile/profile.dart';
+import 'package:pixlit_store/features/shop/screens/order/order.dart';
 import 'package:pixlit_store/ultils/constants/colors.dart';
 import 'package:pixlit_store/ultils/constants/sizes.dart';
 
@@ -61,10 +62,12 @@ class SettingsScreen extends StatelessWidget {
                       icon: Iconsax.shopping_cart,
                       title: 'My Cart',
                       subTitle: 'Add, remove products and move to checkout'),
-                  const TSettingsMenuTile(
-                      icon: Iconsax.bag_tick,
-                      title: 'My Orders',
-                      subTitle: 'In-Progress and Completed Orders'),
+                  TSettingsMenuTile(
+                    icon: Iconsax.bag_tick,
+                    title: 'My Orders',
+                    subTitle: 'In-Progress and Completed Orders',
+                    onTap: () => Get.to(() => const OrderScreen()),
+                  ),
                   const TSettingsMenuTile(
                       icon: Iconsax.bank,
                       title: 'Bank Account',
