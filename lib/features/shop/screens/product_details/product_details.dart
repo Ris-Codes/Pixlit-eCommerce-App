@@ -12,8 +12,8 @@ import 'package:readmore/readmore.dart';
 import 'widgets/product_image_slider.dart';
 import 'widgets/rating_and_share.dart';
 
-class ProductDetail extends StatelessWidget {
-  const ProductDetail({super.key});
+class ProductDetailScreen extends StatelessWidget {
+  const ProductDetailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -75,9 +75,9 @@ class ProductDetail extends StatelessWidget {
                       const TSectionHeading(
                           title: 'Reviews (199)', showActionButton: false),
                       IconButton(
-                        icon: const Icon(
-                            Iconsax.arrow_right_3, size: 18),
-                        onPressed: () => Get.to(() => const ProductReviewsScreen()),
+                        icon: const Icon(Iconsax.arrow_right_3, size: 18),
+                        onPressed: () =>
+                            Get.to(() => const ProductReviewsScreen()),
                       )
                     ],
                   ),
