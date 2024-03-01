@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pixlit_store/common/widgets/products/product_cards/product_card_vertical.dart';
+import 'package:pixlit_store/features/shop/screens/all_products/all_products.dart';
 import 'package:pixlit_store/ultils/constants/image_strings.dart';
 import 'package:pixlit_store/ultils/constants/sizes.dart';
 
@@ -67,7 +69,7 @@ class HomeScreen extends StatelessWidget {
                   /// --Heading
                   TSectionHeading(
                     title: 'Popular Products',
-                    onPressed: () {},
+                    onPressed: () => Get.to(() => const AllProducts()),
                   ),
                   const SizedBox(height: TSizes.spaceBtwItems),
 
